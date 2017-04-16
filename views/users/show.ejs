@@ -4,11 +4,11 @@
 		<%include ../../partials/head.ejs%>
 	</head>
 	<body>
-		<header>
+		<header class="header-other">
 			<%include ../../partials/header.ejs%>
 		</header>
 		<main>
-            <h1>Show Page for username</h1>
+            <h1>Show Page for <%=user.username%></h1>
             <section>
                 <h2>Stories Written By This User:</h2>
                 <ul>
@@ -23,12 +23,8 @@
                 </ul>
             </section>
 			<section>
-				<a href="/users/<%=user._id%>/edit">Edit</a>
-			</section>
-            <section>
-				<form action="/users/<%=user._id%>?_method=DELETE" method="POST">
-					<input type="submit" value="Delete User"/>
-				</form>
+                <a href="/stories/<%=user._id%>/new">Spin a new \yärn\</a><br/>
+				<a href="/users/<%=user._id%>/edit">Edit Account</a>
 			</section>
 		</main>
 	</body>

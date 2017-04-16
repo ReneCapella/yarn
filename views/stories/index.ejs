@@ -4,6 +4,18 @@
         <%include ../../partials/head.ejs%>
     </head>
     <body>
-        <%include ../../partials/header.ejs%>
+        <header class="header-other">
+            <%include ../../partials/header.ejs%>
+        </header>
+        <main>
+			<h2>List of Stories</h2>
+			<ul>
+				<% for(var i = 0; i < stories.length; i++){ %>
+					<li>
+						<a href="/stories/<%=stories[i]._id%>"><%=stories[i].title%></a>
+					</li>
+				<% } %>
+			</ul>
+		</main>
     </body>
 </html>

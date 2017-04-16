@@ -4,7 +4,7 @@
         <%include ../../partials/head.ejs%>
     </head>
     <body>
-        <header>
+        <header class="header-other">
 			<%include ../../partials/header.ejs%>
 		</header>
         <h1>Register</h1>
@@ -13,5 +13,7 @@
             <input type="password" name="password" placeholder="password">
             <input type="submit" value="Register" >
         </form>
+        
+        <p>Aready a member? <a href="/sessions/new.ejs">Log in</a>.</p>
     </body>
 </html>

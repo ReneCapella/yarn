@@ -4,45 +4,37 @@
         <%include ../partials/head.ejs%>
     </head>
     <body>
-        <header class="home">
+        <header class="header-home">
             <div class="logo-home">
-                <a href="/"><h1 id="yarn-home">\yärn\</h1>
-                <h2 id=""><i>noun</i>: a narrative of adventures; <i>especially</i> :  a tall tale</h2></a>
+                <h1 id="yarn-home">\yärn\</h1>
+                <h2 id="definition-home"><i>noun</i>: a narrative of adventures;<br/> <i>especially</i> :  a tall tale</h2>
             </div >
             <nav class="nav-home">
-                <ul>
-                    <li><a href="/">Home</a></li>
+                <ul id="nav-home">
                     <li><a href="/users">Community</a></li>
                     <li><a href="/stories">Stories</a></li>
-                    <li><a href="/users/new">Start Your Story!</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul id="user-nav-home">
+                    <% if(currentUser === undefined){%>
+                        <li>
+                            <a href="/sessions/new">Log In</a>
+                        </li>
+                        <li>
+                            <a href="/users/new">Register</a>
+                        </li>
+                        <%}%>
+
+                    <% if(currentUser){ %>
+                        <li>
+                            <form action="/sessions?_method=DELETE" method="POST">
+                                <input id="logout-input" type="submit" value="Logout">
+                            </form>
+                        </li>
+                        <li><a href="/users/<%=currentUser._id%>">My account</a></li>
+                        <% } %>
                 </ul>
             </nav>
         </header>
-        <% if(currentUser){ %>
-        <h1>Welcome, <%=currentUser.username%>.</h1>
-        <% }else{ %>
-            <h1>Begin your journey:</h1>
-            <% } %>
-        <nav>
-            <ul>
-                <% if(currentUser === undefined){%>
-                    <li>
-                        <a href="/sessions/new">Log In</a>
-                    </li>
-                    <li>
-                        <a href="/users/new">Register</a>
-                    </li>
-                    <%}%>
-
-                <% if(currentUser){ %>
-                    <li>
-                        <form action="/sessions?_method=DELETE" method="POST">
-                            <input type="submit" value="logout">
-                        </form>
-                    </li>
-                    <li><a href="/users/<%=currentUser._id%>">My account</a></li>
-                    <% } %>
-            </ul>
-        </nav>
     </body>
 </html>

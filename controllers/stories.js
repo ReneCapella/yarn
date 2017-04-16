@@ -2,21 +2,48 @@ var express = require('express');
 var router = express.Router();
 var Story = require('../models/stories.js');
 var User = require('../models/users.js');
+var session = require('express-session');
 // var bcrypt = require('bcrypt');
 
 router.get('/', function(req, res){
 	Story.find({}, function(err, foundStories){
 		res.render('stories/index.ejs', {
-			stories: foundStories
+			stories: foundStories,
+            currentUser: req.session.currentuser
 		});
 	});
 });
 
 router.get('/new', function(req, res){
     User.find({}, function(err, foundUsers){
-        res.render('stories/new.ejs', {
-            users:foundUsers
-        });
+        if(req.session.currentuser !== undefined){
+            res.render('stories/new.ejs', {
+                users:foundUsers
+            });
+        } else {
+            res.redirect('/sessions/new');
+		};
+    });
+});
+
+router.get('/:id/edit', function(req, res){
+	Story.findById(req.params.id, function(err, foundStory){
+		res.render('stories/edit.ejs', {
+			story: foundStory,
+            currentUser: req.session.currentuser
+		});
+	});
+});
+
+router.get('/:id', function(req, res){
+    Story.findById(req.params.id, function(err, foundStory){
+        User.findOne({'stories._id':req.params.id}, function(err, foundUser){
+    		res.render('stories/show.ejs', {
+                user: foundUser,
+    			story: foundStory,
+                currentUser: req.session.currentuser
+    		});
+    	});
     });
 });
 
@@ -32,17 +59,6 @@ router.post('/', function(req, res){
     });
 });
 
-router.get('/:id', function(req, res){
-    Story.findById(req.params.id, function(err, foundStory){
-        User.findOne({'stories._id':req.params.id}, function(err, foundUser){
-    		res.render('stories/show.ejs', {
-                user: foundUser,
-    			story: foundStory
-    		});
-    	});
-    });
-});
-
 router.delete('/:id', function(req, res){
 	Story.findByIdAndRemove(req.params.id, function(){
         User.findOne({'stories._id':req.params.id}, function(err, foundUser){
@@ -54,13 +70,6 @@ router.delete('/:id', function(req, res){
 	});
 });
 
-router.get('/:id/edit', function(req, res){
-	Story.findById(req.params.id, function(err, foundStory){
-		res.render('stories/edit.ejs', {
-			story: foundStory
-		});
-	});
-});
 
 router.put('/:id', function(req, res){
 	Story.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, updatedStory){

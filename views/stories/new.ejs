@@ -4,6 +4,20 @@
         <%include ../../partials/head.ejs%>
     </head>
     <body>
-        <%include ../../partials/header.ejs%>
+        <header class="header-other">
+            <%include ../../partials/header.ejs%>
+        </header>
+        <main>
+			<form action="/stories" method="post">
+                <select name="storyId">
+                    <% for(var i = 0; i < stories.length; i++) {%>
+                    <option value="<%=stories[i].id%>" ><%=stories[i].name%></option>
+                    <% } %>
+                </select></br>
+				<input type="text" name="title" placeholder="Title"/><br/>
+				<textarea name="body" placeholder="Story"></textarea><br/>
+				<input type="submit" value="Publish Story"/>
+			</form>
+		</main>
     </body>
 </html>

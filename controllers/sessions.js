@@ -8,7 +8,7 @@ router.get('/new', function(req, res){
 });
 
 router.post('/', function(req, res){
-    User.findOne({username: req.body.username,}, function(err, foundUser){
+    User.findOne({username: req.body.username}, function(err, foundUser){
         if( bcrypt.compareSync(req.body.password, foundUser.password) ){
             req.session.currentuser = foundUser;
             res.redirect('/');

@@ -4,6 +4,20 @@
         <%include ../../partials/head.ejs%>
     </head>
     <body>
-        <%include ../../partials/header.ejs%>
+        <header class="header-other">
+            <%include ../../partials/header.ejs%>
+        </header>
+        <main>
+			<h2>Edit My Account:</h2>
+			<form action="/users/<%=user._id%>?_method=PUT" method="post">
+				<input type="text" name="name" value="<%=user.username%>"/><br/>
+				<input id="update-input" type="submit" value="Update user"/>
+			</form>
+            <section>
+				<form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+					<input id="delete-input" type="submit" value="Delete User"/>
+				</form>
+			</section>
+		</main>
     </body>
 </html>

@@ -37,16 +37,6 @@ app.get('/', function(req, res){
     });
 });
 
-// app.get('/account', function(req, res){
-//     User.find({})
-//     if(req.session.currentuser !== undefined){
-//         res.render('show.ejs', {
-//             currentUser: req.session.currentuser
-//         });
-//     } else {
-//         res.redirect('/sessions/new')
-//     }
-// });
 
 //connections+++++++++++++++++
 app.listen(8080, function(){

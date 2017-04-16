@@ -4,6 +4,20 @@
         <%include ../../partials/head.ejs%>
     </head>
     <body>
-        <%include ../../partials/header.ejs%>
+        <header class="header-other">
+            <%include ../../partials/header.ejs%>
+        </header>
+        <main>
+			<section>
+                <%=story.title%>
+				<%=story.body%>
+			</section>
+			<section>
+			    <h3>Feedback section?</h3>
+			</section>
+			<section>
+			    <a href="/stories/<%=story._id%>/edit">Edit</a>
+			</section>
+		</main>
     </body>
 </html>

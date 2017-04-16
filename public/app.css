@@ -1,14 +1,103 @@
+/*-------------------ALL PAGES--------------------*/
+
 body {
     background-color: black;
-    font-family: serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
     color: white;
+    min-width: 600px;
+}
+
+form {
+    color: black;
+}
+
+ul {
+    list-style: none;
 }
 
 a {
-    color: white;
+    color: lightblue;
     text-decoration: none;
 }
 
 a :hover {
-    color: lightgray;
+    color: white;
+}
+
+/*-----------------------Header Styling-----------------*/
+nav ul {
+    display:flex;
+}
+nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* **********-HOME PAGE HEADER-*********** */
+.header-home {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.logo-home {
+    min-width: 600px;
+}
+#yarn-home {
+    position: relative;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 190px;
+    text-align: center;
+    left: -85px;
+    margin-bottom: 0;
+}
+#nav-home {
+    margin-left: 0;
+}
+
+#user-nav-home{
+    padding-right: 40px;
+}
+#nav-home li {
+    margin: 40px 0 0 23px;
+}
+#user-nav-home li{
+    margin: 37px 23px 0 0;
+}
+#definition-home {
+    position: relative;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 40px;
+    color: lightblue;
+    text-align: center;
+    margin-top: -25px;
+    left: 70px;
+}
+
+/* *******-NON-HOME PAGE HEADER-**********/
+.header-other {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 5px double lightgray;
+}
+#yarn-other {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 50px;
+    margin-left: 23px;
+}
+
+#nav-other li {
+    margin: 37px 23px 0 0;
+}
+.header-logo-link {
+    color: white;
+}
+
+/*OTHER*/
+#delete-input,#logout-input,#update-input {
+    border: none;
+    background: none;
+    padding: 0;
+    color: lightblue;
 }
