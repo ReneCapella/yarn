@@ -1,0 +1,105 @@
+body {
+    background-image: url('img/chalkboard.jpg');
+    font-family: 'Vollkorn', serif;
+
+}
+
+.home-page {
+    display: flex;
+    flex-direction:  column;
+
+}
+
+.header-other {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo,.logo-other {
+    display: flex;
+    flex-direction: column;
+}
+
+#scrap {
+    font-family: 'Fredericka the Great', cursive;
+    color: #FFFAD6;
+    font-size: 300px;
+    margin-top: -25px;
+    margin-bottom: 0px;
+}
+
+#scrap-other {
+    font-family: 'Fredericka the Great', cursive;
+    color: #FFFAD6;
+    font-size: 100px;
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+
+#box {
+    font-family: 'Cinzel', serif;
+    color: #ADCFC6;
+    font-size: 200px;
+    text-decoration: overline;
+    margin-top: -25px;
+    text-shadow: black 1px 0 5px;
+}
+
+#box-other {
+    font-family: 'Cinzel', serif;
+    color: #ADCFC6;
+    font-size: 66px;
+    text-decoration: overline;
+    margin-top: -15px;
+    text-shadow: black 1px 0 5px;
+}
+
+
+.home-nav {
+    display:flex;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+
+.other-nav {
+    text-align: right;
+    margin: 10px;
+}
+
+.other-nav li{
+    margin: 10px;
+}
+
+ul {
+    list-style: none;
+    display:flex;
+    flex-flow: row wrap;
+}
+
+.user-index {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    color: #FFFAD6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ADCFC6
+}
+
+img {
+
+    width: 220px;
+}
+
+h1 {
+    margin-left: 40px;
+}
+
+.photo-index-image {
+    display: flex;
+    justify-content: center;
+}

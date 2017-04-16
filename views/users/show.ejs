@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>User Show Page</title>
+		<%include ../../partials/head.ejs%>
 	</head>
 	<body>
 		<header>
-			<nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/authors">Author Index</a>
-					</li>
-				</ul>
-			</nav>
+			<%include ../../partials/header.ejs%>
 		</header>
 		<main>
             <h1>Show Page for <%=user.name%></h1>
