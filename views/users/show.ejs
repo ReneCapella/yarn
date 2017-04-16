@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>User Show Page</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/authors">Author Index</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+            <h1>Show Page for <%=user.name%></h1>
+            <section>
+                <h2>Stories Written By This User:</h2>
+                <ul>
+                    <li>
+                        <% for(var i = 0; i < user.stories.length; i++){%>
+                            <a href="/stories/<%=user.stories[i]._id%>">
+                                <%=user.stories[i].title%>
+                            </a>
+                        <% } %>
+
+                    </li>
+                </ul>
+            </section>
+			<section>
+				<a href="/users/<%=user._id%>/edit">Edit</a>
+			</section>
+            <section>
+				<form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+					<input type="submit" value="Delete User"/>
+				</form>
+			</section>
+		</main>
+	</body>
+</html>
