@@ -12,6 +12,10 @@ router.get('/', function(req, res){
 	});
 });
 
+router.get('/new', function(req, res){
+    res.render('users/new.ejs');
+});
+
 router.get('/:id', function(req, res){
 	User.findById(req.params.id, function(err, foundUser){
 		res.render('users/show.ejs', {
@@ -20,8 +24,12 @@ router.get('/:id', function(req, res){
 	});
 });
 
-router.get('/new', function(req, res){
-    res.render('users/new.ejs');
+router.get('/:id/edit', function(req, res){
+	User.findById(req.params.id, function(err, foundUser){
+		res.render('users/edit.ejs', {
+			user: foundUser
+		});
+	});
 });
 
 router.post('/', function(req, res){
@@ -46,14 +54,6 @@ router.delete('/:id', function(req, res){
                 	res.redirect('/users');
             }
         );
-	});
-});
-
-router.get('/:id/edit', function(req, res){
-	User.findById(req.params.id, function(err, foundUser){
-		res.render('users/edit.ejs', {
-			user: foundUser
-		});
 	});
 });
 

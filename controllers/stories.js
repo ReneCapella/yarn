@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Story = require('../models/stories.js');
-var Author = require('../models/authors.js');
+var User = require('../models/users.js');
 // var bcrypt = require('bcrypt');
 
 router.get('/', function(req, res){

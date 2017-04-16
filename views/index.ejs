@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%include ../../partials/head.ejs%>
+        <%include ../partials/head.ejs%>
     </head>
     <body>
+        <header class="home">
+            <div class="logo-home">
+                <a href="/"><h1 id="yarn-home">\yärn\</h1>
+                <h2 id=""><i>noun</i>: a narrative of adventures; <i>especially</i> :  a tall tale</h2></a>
+            </div >
+            <nav class="nav-home">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/users">Community</a></li>
+                    <li><a href="/stories">Stories</a></li>
+                    <li><a href="/users/new">Start Your Story!</a></li>
+                </ul>
+            </nav>
+        </header>
         <% if(currentUser){ %>
-        <h1>Blah blah blah Welcome <%=currentUser.username%></h1>
+        <h1>Welcome, <%=currentUser.username%>.</h1>
         <% }else{ %>
-            <h1>Welcome</h1>
+            <h1>Begin your journey:</h1>
             <% } %>
         <nav>
             <ul>
@@ -26,7 +40,7 @@
                             <input type="submit" value="logout">
                         </form>
                     </li>
-                    <li>Welcome to the <a href="/app">paaaartty</a></li>
+                    <li><a href="/users/<%=currentUser._id%>">My account</a></li>
                     <% } %>
             </ul>
         </nav>

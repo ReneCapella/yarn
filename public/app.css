@@ -1,5 +1,14 @@
 body {
-    background-image: black;
+    background-color: black;
     font-family: serif;
+    color: white;
+}
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a :hover {
+    color: lightgray;
 }

@@ -5,7 +5,11 @@ var session = require('express-session');
 var app = express();
 var methodOverride = require('method-override');
 
-//middleware++++++++++++++++++
+//require the models because of the mcAccount page??
+// var User = require('models/users.js');
+// var Story = require('models/stories.js');
+
+//middleware+++++++++++++++++++++++++++++++++++++
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
@@ -13,6 +17,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(express.static('public'));
 //sessions controller middleware
 var sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
@@ -32,13 +37,16 @@ app.get('/', function(req, res){
     });
 });
 
-app.get('/stories', function(req, res){
-    if(req.session.currentuser !== undefined){
-        res.send('the party');
-    } else {
-        res.redirect('/sessions/new')
-    }
-});
+// app.get('/account', function(req, res){
+//     User.find({})
+//     if(req.session.currentuser !== undefined){
+//         res.render('show.ejs', {
+//             currentUser: req.session.currentuser
+//         });
+//     } else {
+//         res.redirect('/sessions/new')
+//     }
+// });
 
 //connections+++++++++++++++++
 app.listen(8080, function(){
