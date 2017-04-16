@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Index</title>
+    </head>
+    <body>
+        <% if(currentUser){ %>
+        <h1>Blah blah blah Welcome <%=currentUser.username%></h1>
+        <% }else{ %>
+            <h1>Welcome</h1>
+            <% } %>
+        <nav>
+            <ul>
+                <% if(currentUser === undefined){%>
+                    <li>
+                        <a href="/sessions/new">Log In</a>
+                    </li>
+                    <li>
+                        <a href="/users/new">Register</a>
+                    </li>
+                    <%}%>
+
+                <% if(currentUser){ %>
+                    <li>
+                        <form action="/sessions?_method=DELETE" method="POST">
+                            <input type="submit" value="logout">
+                        </form>
+                    </li>
+                    <li>Welcome to the <a href="/app">paaaartty</a></li>
+                    <% } %>
+            </ul>
+        </nav>
+    </body>
+</html>
