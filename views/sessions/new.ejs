@@ -5,7 +5,17 @@
     </head>
     <body>
         <header class="header-other">
-            <%include ../../partials/header.ejs%>
+            <div class="logo-other">
+                <a class="header-logo-link" href="/"><h1 id="yarn-other">\yärn\</h1>
+            </div >
+            <nav class="nav-other">
+                <ul id="nav-other">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/users">Community</a></li>
+                    <li><a href="/stories">Stories</a></li>
+                    <li><a href="/users/new">Register</a></li>
+                </ul>
+            </nav>
         </header>
         <h1>Sign In</h1>
         <form class="" action="/sessions" method="POST">

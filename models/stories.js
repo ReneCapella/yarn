@@ -1,19 +1,20 @@
 var mongoose = require('mongoose');
 
 var storySchema = mongoose.Schema({
-    username:String,
 	title:String,
     draft: String,
-
-    hero:{type: String, required: true},
-    mentor:{type: String, required: true},
-    ally:{type: String, required: true},
-    herald: {type: String, required: true},
-    trickster: {type: String, required: true},
-    shapeshifter: {type: String, required: true},
-    guardian: {type: String, required: true},
-    shadow: {type: String, required: true},
-    peacefulKingdom: {type:String, required: true},
+    feedback: String,
+//characters
+    hero: String,
+    mentor: String,
+    ally: String,
+    herald: String,
+    trickster: String,
+    shapeshifter: String,
+    guardian: String,
+    shadow: String,
+//parts of Hero Journey
+    peacefulKingdom: String,
     callToAction: String,
     superNaturalAide: String,
     firstThreshold:String,
@@ -27,6 +28,7 @@ var storySchema = mongoose.Schema({
     returnThreshold: String,
     freedomeToLive: String,
     celebration: String
+
 });
 
 var Story = mongoose.model('Story', storySchema);

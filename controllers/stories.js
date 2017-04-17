@@ -18,7 +18,8 @@ router.get('/new', function(req, res){
     User.find({}, function(err, foundUsers){
         if(req.session.currentuser !== undefined){
             res.render('stories/new.ejs', {
-                users:foundUsers
+                users:foundUsers,
+                currentUser: req.session.currentuser
             });
         } else {
             res.redirect('/sessions/new');
@@ -37,6 +38,7 @@ router.get('/:id/edit', function(req, res){
 
 router.get('/:id', function(req, res){
     Story.findById(req.params.id, function(err, foundStory){
+        console.log(foundStory);
         User.findOne({'stories._id':req.params.id}, function(err, foundUser){
     		res.render('stories/show.ejs', {
                 user: foundUser,

@@ -5,6 +5,10 @@ var session = require('express-session');
 var app = express();
 var methodOverride = require('method-override');
 
+//environment variables
+var port = process.env.PORT || 3000;
+var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/yarn';
+
 //require the models because of the mcAccount page??
 // var User = require('models/users.js');
 // var Story = require('models/stories.js');
@@ -39,12 +43,38 @@ app.get('/', function(req, res){
 
 
 //connections+++++++++++++++++
-app.listen(8080, function(){
-    console.log("listening");
+app.listen(port, function(){
+    console.log("listening on port " + port);
 });
 
-mongoose.connect('mongodb://localhost:27017/yarn');
+mongoose.connect(mongoDBURI);
 
 mongoose.connection.once('open', function(){
     console.log('connected to mongo!');
 });
+
+
+// draft: String,
+//
+// hero:{type: String, required: true},
+// mentor:{type: String, required: true},
+// ally:{type: String, required: true},
+// herald: {type: String, required: true},
+// trickster: {type: String, required: true},
+// shapeshifter: {type: String, required: true},
+// guardian: {type: String, required: true},
+// shadow: {type: String, required: true},
+// peacefulKingdom: {type:String, required: true},
+// callToAction: String,
+// superNaturalAide: String,
+// firstThreshold:String,
+// landOfAdventure: String,
+// roadOfTrials: String,
+// nightSeaVoyage: String,
+// finalTemptation: String,
+// apotheosis: String,
+// confrontingBigBad: String,
+// ultimateBoon: String,
+// returnThreshold: String,
+// freedomeToLive: String,
+// celebration: String

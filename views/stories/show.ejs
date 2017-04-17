@@ -14,9 +14,24 @@
 			<section>
 			    <h3>Feedback section?</h3>
 			</section>
-			<section>
-			    <a href="/stories/<%=story._id%>/edit">Edit</a>
-			</section>
+            <% if(currentUser === undefined){ %>
+            <section>
+                <a href="/users/new">Sign In or Register to spin your new \yärn\</a><br/>
+            </section>
+            <% } else if(currentUser.username === user.username){ %>
+                <section>
+                    <a href="/stories/new">Spin a new \yärn\</a><br/>
+    				<a href="/stories/<%=story._id%>/edit">Edit</a>
+    			</section>
+            <% } else if(currentUser !== undefined && currentUser.username !== user.username){ %>
+            <section>
+                <form action="/stories" method="POST">
+                    <textarea name="feedback" rows="8" cols="80"></textarea>
+                </form>
+            </section>
+            <% }%>
+
+
 		</main>
     </body>
 </html>

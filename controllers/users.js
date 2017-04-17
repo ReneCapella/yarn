@@ -22,6 +22,7 @@ router.get('/new', function(req, res){
 
 router.get('/:id', function(req, res){
 	User.findById(req.params.id, function(err, foundUser){
+        console.log(foundUser);
 		res.render('users/show.ejs', {
 			user: foundUser,
             currentUser: req.session.currentuser

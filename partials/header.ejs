@@ -7,8 +7,23 @@
         <li><a href="/">Home</a></li>
         <li><a href="/users">Community</a></li>
         <li><a href="/stories">Stories</a></li>
+        <% if(currentUser === undefined){%>
+            <li>
+                <a href="/sessions/new">Log In</a>
+            </li>
+            <li>
+                <a href="/users/new">Register</a>
+            </li>
+        <%}%>
 
-        <li><a href="/users/new">Register</a></li>
+        <% if(currentUser){ %>
+            <li>
+                <form action="/sessions?_method=DELETE" method="POST">
+                    <input id="logout-input" type="submit" value="Logout">
+                </form>
+            </li>
+            <li><a href="/users/<%=currentUser._id%>">My account</a></li>
+        <% } %>
 
     </ul>
 

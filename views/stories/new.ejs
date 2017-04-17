@@ -8,7 +8,7 @@
             <%include ../../partials/header.ejs%>
         </header>
         <main>
-			<form action="/stories" method="post">
+			<form action="/stories" method="POST">
                 <select name="userId">
                     <% for(var i = 0; i < users.length; i++) {%>
                     <option value="<%=users[i].id%>" ><%=users[i].username%></option>

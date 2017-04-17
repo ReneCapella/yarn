@@ -22,10 +22,16 @@
                     </li>
                 </ul>
             </section>
-			<section>
-                <a href="/stories/new">Spin a new \yärn\</a><br/>
-				<a href="/users/<%=user._id%>/edit">Edit Account</a>
-			</section>
+            <% if(currentUser === undefined){ %>
+            <section>
+                <a href="/users/new">Sign In or Register to spin your new \yärn\</a><br/>
+            </section>
+            <% } else if(currentUser.username === user.username){ %>
+                <section>
+                    <a href="/stories/new">Spin a new \yärn\</a><br/>
+    				<a href="/users/<%=user._id%>/edit">Edit Account</a>
+    			</section>
+            <% } %>
 		</main>
 	</body>
 </html>
