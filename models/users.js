@@ -4,6 +4,8 @@ var Story = require('./stories.js');
 
 var userSchema = Schema({
     username: String,
+    img: String,
+    description: String,
     password: String,
     stories: [Story.schema]
 });

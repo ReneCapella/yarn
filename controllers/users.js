@@ -34,7 +34,8 @@ router.get('/:id/edit', function(req, res){
 	User.findById(req.params.id, function(err, foundUser){
         if(req.session.currentuser !== undefined){
             res.render('users/edit.ejs', {
-    			user: foundUser
+    			user: foundUser,
+                currentUser: req.session.currentuser
             });
         } else {
             res.redirect('/sessions/new');

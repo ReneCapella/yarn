@@ -8,9 +8,13 @@
 			<%include ../../partials/header.ejs%>
 		</header>
 		<main>
-            <h1>Show Page for <%=user.username%></h1>
             <section>
-                <h2>Stories Written By This User:</h2>
+                <h2><%=user.username%></h2>
+                <img src="<%=user.img%>" alt="">
+                <p>About <%=user.username%>: <%=user.description%></p>
+            </section>
+            <section>
+                <h2>Stories Written By <%=user.username%>:</h2>
                 <ul>
                     <li>
                         <% for(var i = 0; i < user.stories.length; i++){%>

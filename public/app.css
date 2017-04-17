@@ -25,6 +25,10 @@ a :hover {
     color: white;
 }
 
+img {
+    height: 200px;
+}
+
 /*-----------------------Header Styling-----------------*/
 nav ul {
     display:flex;

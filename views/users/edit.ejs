@@ -11,6 +11,8 @@
 			<h2>Edit My Account:</h2>
 			<form action="/users/<%=user._id%>?_method=PUT" method="post">
 				<input type="text" name="name" value="<%=user.username%>"/><br/>
+                <input type="text" name="img" placeholder="Image url" value="<%=user.img%>">
+                <textarea name="description" rows="8" cols="80" placeholder="Tell us about you:" value="<%=user.description%>"></textarea>
 				<input id="update-input" type="submit" value="Update user"/>
 			</form>
             <section>
