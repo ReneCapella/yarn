@@ -4,56 +4,20 @@ var storySchema = mongoose.Schema({
     username:String,
 	title:String,
     draft: String,
-	characters: {
-        hero:{
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        mentor:{
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        ally:{
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        herald: {
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        trickster: {
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        shapeshifter: {
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        guardian: {
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        },
-        shadow: {
-            name: {type: String, required: true},
-            gender: {type: String, required: true}
-        }
-    },
-    beginning: {
-        peacefulKingdom: {
-            name: {type:String, required: true}
-        },
-    },
+
+    hero:{type: String, required: true},
+    mentor:{type: String, required: true},
+    ally:{type: String, required: true},
+    herald: {type: String, required: true},
+    trickster: {type: String, required: true},
+    shapeshifter: {type: String, required: true},
+    guardian: {type: String, required: true},
+    shadow: {type: String, required: true},
+    peacefulKingdom: {type:String, required: true},
     callToAction: String,
-    superNaturalAide: {
-        description: String
-    },
-    firstThreshold: {
-        challenge: String
-    },
-    landOfAdventure: {
-        name: {type: String, required: true, unique: true},
-        description: String
-    },
+    superNaturalAide: String,
+    firstThreshold:String,
+    landOfAdventure: String,
     roadOfTrials: String,
     nightSeaVoyage: String,
     finalTemptation: String,
