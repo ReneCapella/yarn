@@ -43,7 +43,7 @@ app.listen(8080, function(){
     console.log("listening");
 });
 
-mongoose.connect('mongodb://localhost:27017/auth');
+mongoose.connect('mongodb://localhost:27017/yarn');
 
 mongoose.connection.once('open', function(){
     console.log('connected to mongo!');
