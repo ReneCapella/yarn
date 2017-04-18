@@ -53,7 +53,6 @@ router.get('/:id', function(req, res){
 
 router.post('/', function(req, res){
     User.findById(req.body.userId, function(err, foundUser){
-        console.log(foundUser);
     	Story.create(req.body, function(err, createdStory){
             foundUser.stories.push(createdStory);
             foundUser.save(function(err, savedUser){
@@ -64,7 +63,7 @@ router.post('/', function(req, res){
 });
 
 router.delete('/:id', function(req, res){
-	Story.findByIdAndRemove(req.params.id, function(){
+	Story.findByIdAndRemove(req.params.id, {new:true}, function(){
         User.findOne({'stories._id':req.params.id}, function(err, foundUser){
             foundUser.stories.id(req.params.id).remove();
             foundUser.save(function(err, savedUser){
@@ -77,6 +76,7 @@ router.delete('/:id', function(req, res){
 
 router.put('/:id', function(req, res){
 	Story.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, updatedStory){
+        console.log(req.body);
         User.findOne({ 'stories._id' : req.params.id }, function(err, foundUser){
             foundUser.stories.id(req.params.id).remove();
             foundUser.stories.push(updatedStory);

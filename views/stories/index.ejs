@@ -12,7 +12,9 @@
 			<ul>
 				<% for(var i = 0; i < stories.length; i++){ %>
 					<li>
-						<a href="/stories/<%=stories[i]._id%>"><%=stories[i].title%></a>
+						<a href="/stories/<%=stories[i]._id%>"><%=stories[i].title%></a><br/>
+                        by: <%=stories[i].username%>
+
 					</li>
 				<% } %>
 			</ul>
