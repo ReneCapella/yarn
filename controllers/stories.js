@@ -18,7 +18,7 @@ router.get('/new', function(req, res){
     User.find({}, function(err, foundUsers){
         if(req.session.currentuser !== undefined){
             res.render('stories/new.ejs', {
-                intro:['This story begins a long time ago in a far away land.','If only they knew.', 'This is a love story to define all love stories', 'I never much cared for insects.'],
+                draft:['Rough Draft', 'First Draft', 'Second Draft', 'Millionth Draft', 'Final'],
                 users:foundUsers,
                 currentUser: req.session.currentuser
             });
@@ -31,6 +31,7 @@ router.get('/new', function(req, res){
 router.get('/:id/edit', function(req, res){
 	Story.findById(req.params.id, function(err, foundStory){
 		res.render('stories/edit.ejs', {
+            draft:['Rough Draft', 'First Draft', 'Second Draft', 'Millionth Draft', 'Final'],
 			story: foundStory,
             currentUser: req.session.currentuser
 		});

@@ -19,8 +19,8 @@
                     <li>
                         <% for(var i = 0; i < user.stories.length; i++){%>
                             <a href="/stories/<%=user.stories[i]._id%>">
-                                <%=user.stories[i].title%>
-                            </a>
+                                <%=user.stories[i].title%> - <%=user.stories[i].draft%>
+                            </a><br/>
                         <% } %>
 
                     </li>

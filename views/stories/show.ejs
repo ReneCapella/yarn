@@ -7,9 +7,23 @@
         <header class="header-other">
             <%include ../../partials/header.ejs%>
         </header>
-        <main>
+        <main id="story-show-main-div">
 			<section>
-                <%=story.title%>
+                <h2><%=story.title%></h2>
+                <h3><%=story.draft%></h3>
+                <p><%=story.ordinaryWorld%></p>
+                <p><%=story.callToAction%></p>
+                <p><%=story.refusal%></p>
+                <p><%=story.mentorHelper%></p>
+                <p><%=story.crossingThreshold%></p>
+                <p><%=story.landOfAdventure%></p>
+                <p><%=story.roadOfTrials%></p>
+                <p><%=story.approach%></p>
+                <p><%=story.ordeal%></p>
+                <p><%=story.reward%></p>
+                <p><%=story.roadBack%></p>
+                <p><%=story.atonement%></p>
+                <p><%=story.return%></p>
 			</section>
 			<section>
 			    <h3>Feedback section?</h3>
@@ -22,6 +36,9 @@
                 <section>
                     <a href="/stories/new">Spin a new \yärn\</a><br/>
     				<a href="/stories/<%=story._id%>/edit">Edit</a>
+                    <form action="/stories/<%=story.id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete Story"/>
+                </form>
     			</section>
             <% } else if(currentUser !== undefined && currentUser.username !== user.username){ %>
             <section>

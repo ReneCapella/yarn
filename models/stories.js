@@ -4,32 +4,22 @@ var storySchema = mongoose.Schema({
 	title:String,
     draft: String,
     feedback: String,
-    intro: String,
-//characters
-    hero: String,
-    mentor: String,
-    ally: String,
-    herald: String,
-    trickster: String,
-    shapeshifter: String,
-    guardian: String,
-    shadow: String,
+    
+
 //parts of Hero Journey
-    one: String,
+    ordinaryWorld: String,
     callToAction: String,
-    superNaturalAide: String,
-    firstThreshold:String,
+    refusal: String,
+    mentorHelper: String,
+    crossingThreshold:String,
     landOfAdventure: String,
     roadOfTrials: String,
-    nightSeaVoyage: String,
-    finalTemptation: String,
-    apotheosis: String,
-    confrontingBigBad: String,
-    ultimateBoon: String,
-    returnThreshold: String,
-    freedomeToLive: String,
-    celebration: String
-
+    approach: String,
+    ordeal: String,
+    reward: String,
+    roadBack: String,
+    atonement: String,
+    return: String
 });
 
 var Story = mongoose.model('Story', storySchema);
