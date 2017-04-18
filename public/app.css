@@ -14,6 +14,7 @@ form {
 
 ul {
     list-style: none;
+    display: flex;
 }
 
 a {
@@ -26,6 +27,7 @@ a :hover {
 }
 
 img {
+
     height: 200px;
 }
 
@@ -98,7 +100,25 @@ nav{
     color: white;
 }
 
-/*OTHER*/
+/*--------------------SHOW PAGE--------------------*/
+.user-show-index-li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.user-show-index-ul {
+    display: flex;
+    text-align: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+#user-index-main {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+}
+
+/*Input buttons*/
 #delete-input,#logout-input,#update-input {
     border: none;
     background: none;
