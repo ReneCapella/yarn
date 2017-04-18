@@ -7,14 +7,14 @@
         <header class="header-other">
 			<%include ../../partials/header.ejs%>
 		</header>
-        <main>
+        <main class="user-new-main-div">
             <h1>Register</h1>
             <form class="" action="/users" method="POST">
-                <input type="text" name="username" placeholder="username">
-                <input type="text" name="img" placeholder="Image url">
-                <textarea name="description" rows="8" cols="80" placeholder="Tell us about you:"></textarea>
-                <input type="password" name="password" placeholder="password">
-                <input type="submit" value="Register" >
+                <input type="text" name="username" placeholder="username"><br/>
+                <input type="text" name="img" placeholder="Image url"><br/>
+                <textarea name="description" rows="8" cols="80" placeholder="Tell us about you:"></textarea><br/>
+                <input type="password" name="password" placeholder="password"><br/>
+                <input type="submit" value="Register" ><br/>
             </form>
 
             <p>Aready a member? <a href="/sessions/new.ejs">Log in</a>.</p>

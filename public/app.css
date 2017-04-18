@@ -14,7 +14,6 @@ form {
 
 ul {
     list-style: none;
-    display: flex;
 }
 
 a {
@@ -100,22 +99,33 @@ nav{
     color: white;
 }
 
-/*--------------------SHOW PAGE--------------------*/
-.user-show-index-li {
+/*--------------------USER INDEX PAGE--------------------*/
+.user-index-li {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.user-show-index-ul {
+.user-index-ul {
     display: flex;
     text-align: center;
     flex-flow: row wrap;
     justify-content: space-around;
 }
 #user-index-main {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     height: 600px;
+    width: 90%;
+}
+#user-index-headline {
+    text-align: center;
+}
+
+/*----------------------User New Page------------------------*/
+.user-new-main-div {
+    display: flex;
+    flex-direction: column;
 }
 
 /*Input buttons*/

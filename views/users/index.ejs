@@ -7,11 +7,11 @@
         <header class="header-other">
             <%include ../../partials/header.ejs%>
         </header>
-        <main id="user-index-main">
-			<h2>\yärn\ Spinners Non-a-Nonymous</h2>
-			<ul class="user-show-index-ul">
+        <main class="main-div" id="user-index-main">
+			<h2 id="user-index-headline">\yärn\ Spinners Non-a-Nonymous</h2>
+			<ul class="user-index-ul">
 				<% for(var i = 0; i < users.length; i++){ %>
-					<li class="user-show-index-li">
+					<li class="user-index-li">
 						<a href="/users/<%=users[i]._id%>"><%=users[i].username%></a>
                         <img src="<%=users[i].img%>" alt="">
 					</li>

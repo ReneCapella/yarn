@@ -4,6 +4,7 @@ var storySchema = mongoose.Schema({
 	title:String,
     draft: String,
     feedback: String,
+    intro: String,
 //characters
     hero: String,
     mentor: String,
@@ -14,7 +15,7 @@ var storySchema = mongoose.Schema({
     guardian: String,
     shadow: String,
 //parts of Hero Journey
-    peacefulKingdom: String,
+    one: String,
     callToAction: String,
     superNaturalAide: String,
     firstThreshold:String,

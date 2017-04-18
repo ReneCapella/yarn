@@ -18,6 +18,7 @@ router.get('/new', function(req, res){
     User.find({}, function(err, foundUsers){
         if(req.session.currentuser !== undefined){
             res.render('stories/new.ejs', {
+                intro:['This story begins a long time ago in a far away land.','If only they knew.', 'This is a love story to define all love stories', 'I never much cared for insects.'],
                 users:foundUsers,
                 currentUser: req.session.currentuser
             });
