@@ -36,13 +36,16 @@ var storiesController = require('./controllers/stories.js');
 app.use('/stories', storiesController);
 
 app.get('/', function(req, res){
-    console.log(req.session);
     res.render('index.ejs', {
         currentUser: req.session.currentuser
     });
 });
 
-
+app.get('/about', function(req, res){
+    res.render('about.ejs',{
+        currentUser: req.session.currentuser
+    });
+});
 //connections+++++++++++++++++
 app.listen(port, function(){
     console.log("listening on port " + port);
