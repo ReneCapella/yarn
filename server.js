@@ -35,6 +35,7 @@ app.use('/users', usersController);
 var storiesController = require('./controllers/stories.js');
 app.use('/stories', storiesController);
 
+//--------------------------------ROUTES---------------------------------
 app.get('/', function(req, res){
     res.render('index.ejs', {
         currentUser: req.session.currentuser
@@ -46,7 +47,7 @@ app.get('/about', function(req, res){
         currentUser: req.session.currentuser
     });
 });
-//connections+++++++++++++++++
+//connections++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 app.listen(port, function(){
     console.log("listening on port " + port);
 });

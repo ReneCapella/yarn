@@ -2,47 +2,91 @@
 <html>
     <head>
         <%include ../../partials/head.ejs%>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+        <script src="../../js/app.js"></script>
     </head>
     <body>
         <header class="header-other">
             <%include ../../partials/header.ejs%>
         </header>
+        <h2>Edit Your \yärn\</h2>
         <main>
-			<h2>Story Attributes:</h2>
-			<form action="/stories/<%=story._id%>?_method=PUT" method="post">
-                <input type="text" name="title" value="<%=story.title%>" required><br/>
-                <input type="text" name="username" value="<%=currentUser.username%>" required><br/>
-                <select name="draft">
-                    <% for(var i = 0; i < draft.length; i++){ %>
-                    <option value="<%=draft[i]%>"><%=draft[i]%></option>
-                    <% } %>
-                </select><br/>
+			<form id="story-new-form" action="/stories/<%=story._id%>?_method=PUT" method="post">
+                <div id="story-new-title">
+                    <input type="text" name="title" value="<%=story.title%>" required><br/>
+                    <input type="text" name="username" value="<%=currentUser.username%>" required><br/>
+                    <select name="draft">
+                        <% for(var i = 0; i < draft.length; i++){ %>
+                            <option value="<%=draft[i]%>"><%=draft[i]%></option>
+                            <% } %>
+                    </select><br/>
+                </div>
 
-                <textarea name="ordinaryWorld" rows="8" cols="100" placeholder="<%=story.ordinaryWorld%>" required><%=story.ordinaryWorld%></textarea>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">Something happens that calls your main character to adventure. Perhaps a messenger tells of pending doom, someone falls ill, or something needs found. The event should push your hero towards embarking on a adventure.</p>
+                    <textarea name="callToAction" rows="8" cols="80" required ><%=story.ordinaryWorld%></textarea><br/>
+                </div>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">Here you should write a few sentences outlining your main character's doubts about going on the journey. Maybe the adventure seems impossible or it breaks too many rules like curfews or laws to embark upon.</p>
+                    <textarea name="refusal" rows="8" cols="80" required><%=story.callToAction%></textarea><br/>
+                </div>
 
-                <textarea name="callToAction" rows="8" cols="100" placeholder="<%=story.callToAction%>" required><%=story.callToAction%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">Here you should write a few sentences outlining your main character's doubts about going on the journey. Maybe the adventure seems impossible or it breaks too many rules like curfews or laws to embark upon.</p>
+                    <textarea name="mentorHelper" rows="8" cols="80" required><%=story.refusal%></textarea><br/>
+                </div>
 
-                <textarea name="refusal" rows="8" cols="100" placeholder="<%=story.refusal%>" required><%=story.refusal%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">Your hero meets a mentor to  help the hero through the adventure.</p>
+                    <textarea name="mentorHelper" rows="8" cols="80" placeholder="Mentor Helper" required><%=story.mentorHelper%></textarea><br/>
+                </div>
 
-                <textarea name="mentorHelper" rows="8" cols="100" placeholder="<%=story.mentorHelper%>" required><%=story.mentorHelper%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">With the help of the mentor, the two cross the threshold. They can no longer turn back to their ordinary world.</p>
+                    <textarea name="crossingThreshold" rows="8" cols="80" placeholder="Crossing the Threshold" required><%=story.crossingThreshold%></textarea><br/>
+                </div>
 
-                <textarea name="crossingThreshold" rows="8" cols="100" placeholder="<%=story.crossingThreshold%>" required><%=story.crossingThreshold%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">The world your hero is entering is different than his ordinary world. Describe the differences. Think of how different Wonderland was to Alice once she fell down the rabbit hole.</p>
+                    <textarea name="landOfAdventure" rows="8" cols="80" placeholder="Land of Adventure" required><%=story.landOfAdventure%></textarea><br/>
+                </div>
 
-                <textarea name="landOfAdventure" rows="8" cols="100" placeholder="<%=story.landOfAdventure%>" required><%=story.landOfAdventure%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">One their journey, the hero and the mentor encounter tests and obstacles. They might meet an enemy or an ally--or worse, an enemy in disguise.</p>
+                    <textarea name="roadOfTrials" rows="8" cols="80" placeholder="Road of Trials" required><%=story.roadOfTrials%></textarea><br/>
+                </div>
 
-                <textarea name="roadOfTrials" rows="8" cols="100" placeholder="<%=story.roadOfTrials%>" required><%=story.roadOfTrials%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">With a team assembled, the hero and his allies approach the final obstacle that sent him on his adventure to begin with: a dark castle, or a love profession. This is a moment of planning how to overcome the final obstacle.</p>
+                    <textarea name="approach" rows="8" cols="80" placeholder="Approach" required><%=story.approach%></textarea><br/>
+                </div>
 
-                <textarea name="approach" rows="8" cols="100" placeholder="<%=story.approach%>" required><%=story.approach%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">Upon enacting the plan hatched in the approach, the hero encounters an ordeal that tests him and may kill him. This is a moment of intense fear and often serves as an awakening or apotheosis for the hero.</p>
+                    <textarea name="ordeal" rows="8" cols="80" placeholder="Ordeal" required><%=story.ordeal%></textarea><br/>
+                </div>
 
-                <textarea name="ordeal" rows="8" cols="100" placeholder="<%=story.ordeal%>" required><%=story.ordeal%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">The goal, be retrieving a person or an object, is obtained, and it is time to begin the journey home.</p>
+                    <textarea name="reward" rows="8" cols="80" placeholder="Reward" required><%=story.reward%></textarea><br/>
+                </div>
 
-                <textarea name="reward" rows="8" cols="100" placeholder="<%=story.reward%>" required><%=story.reward%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">Here in lies your climax, writer. With the person rescued or the potion acquired, our hero is faced with his most difficult challenge. He may need to sacrifice himself to save the goal or save someone from sacrafice. Often, this is the battle between the main villian and our hero as they're trying to return back home.</p>
+                    <textarea name="roadBack" rows="8" cols="80" placeholder="Road Back" required><%=story.roadBack%></textarea><br/>
+                </div>
 
-                <textarea name="roadBack" rows="8" cols="100" placeholder="<%=story.roadBack%>" required><%=story.roadBack%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">After the final challenge and right before our hero returns home, the hero realizes something profound about his need or love for home. This could be appreciation for his journey and new friends or a self-reflection.</p>
+                    <textarea name="atonement" rows="8" cols="80" placeholder="Atonement" required><%=story.atonement%></textarea><br/>
+                </div>
 
-                <textarea name="atonement" rows="8" cols="100" placeholder="<%=story.atonement%>" required><%=story.atonement%></textarea><br/>
+                <div id="story-new-form-div">
+                    <p id="hide-headline">The hero returns to the ordinary world. If he left to save his ordinary world, he provides the saving potion or person to restore everything back to normal.</p>
+                    <textarea name="return" rows="8" cols="80" placeholder="Return" required><%=story.return%></textarea>
+                </div>
 
-                <textarea name="return" rows="8" cols="100" placeholder="<%=story.return%>" value="<%=story.return%>" required><%=story.return%></textarea>
 				<input type="submit" value="Update Story"/>
 			</form>
 		</main>

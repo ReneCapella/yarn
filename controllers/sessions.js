@@ -10,18 +10,24 @@ router.get('/new', function(req, res){
     });
 });
 
+
 router.post('/', function(req, res){
+    console.log("2");
     User.findOne({username: req.body.username}, function(err, foundUser){
-        if( bcrypt.compareSync(req.body.password, foundUser.password) ){
+        if(!foundUser){
+            res.redirect('/users/new');
+        }
+        else if( bcrypt.compareSync(req.body.password, foundUser.password) ){
             req.session.currentuser = foundUser;
             res.redirect('/users/');
         } else {
-            res.send('wrong password');
+            console.log("allo");
         }
     });
 });
 
 router.delete('/', function(req, res){
+    console.log("1");
     req.session.destroy(function(){
         res.redirect('/');
     });
