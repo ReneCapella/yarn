@@ -10,8 +10,8 @@
         <main>
 			<h2>List of Stories</h2>
 			<ul>
-				<% for(var i = 0; i < stories.length; i++){ %>
 					<li>
+                        <% for(var i = 0; i < stories.length; i++){ %>
 						<a href="/stories/<%=stories[i]._id%>"><%=stories[i].title%></a><br/>
                         by: <%=stories[i].username%>
 

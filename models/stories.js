@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
 
 var storySchema = mongoose.Schema({
+    username:String,
 	title:String,
     draft: String,
     feedback: String,
-    
+
 
 //parts of Hero Journey
     ordinaryWorld: String,

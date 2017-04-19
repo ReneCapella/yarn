@@ -11,6 +11,11 @@
 			<h2>Story Attributes:</h2>
 			<form action="/stories/<%=story._id%>?_method=PUT" method="post">
                 <input type="text" name="title" value="<%=story.title%>"/><br/>
+                <select name="userId">
+                    <% for(var i = 0; i < users.length; i++) {%>
+                    <option value="<%=users[i].id%>" ><%=users[i].username%></option>
+                    <% } %>
+                </select></br>
                 <select name="draft">
                     <% for(var i = 0; i < draft.length; i++){ %>
                     <option value="<%=draft[i]%>"><%=draft[i]%></option>

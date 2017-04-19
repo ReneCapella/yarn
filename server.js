@@ -22,6 +22,7 @@ app.use(session({
     saveUninitialized: false
 }));
 app.use(express.static('public'));
+
 //sessions controller middleware
 var sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
@@ -53,6 +54,7 @@ mongoose.connection.once('open', function(){
     console.log('connected to mongo!');
 });
 
+// <input type="text" name="userId" value="<%=currentUser.username%>">
 
 // //characters
 //     hero: String,

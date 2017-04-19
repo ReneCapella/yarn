@@ -7,6 +7,7 @@ var session = require('express-session');
 
 router.get('/', function(req, res){
 	Story.find({}, function(err, foundStories){
+        console.log(foundStories);
 		res.render('stories/index.ejs', {
 			stories: foundStories,
             currentUser: req.session.currentuser
@@ -15,11 +16,12 @@ router.get('/', function(req, res){
 });
 
 router.get('/new', function(req, res){
-    User.find({}, function(err, foundUsers){
+    User.findById(req.session.currentuser, function(err, foundUser){
+        console.log(req.session.currentuser);
         if(req.session.currentuser !== undefined){
             res.render('stories/new.ejs', {
                 draft:['Rough Draft', 'First Draft', 'Second Draft', 'Millionth Draft', 'Final'],
-                users:foundUsers,
+                user:foundUser,
                 currentUser: req.session.currentuser
             });
         } else {
@@ -29,10 +31,12 @@ router.get('/new', function(req, res){
 });
 
 router.get('/:id/edit', function(req, res){
+
 	Story.findById(req.params.id, function(err, foundStory){
 		res.render('stories/edit.ejs', {
             draft:['Rough Draft', 'First Draft', 'Second Draft', 'Millionth Draft', 'Final'],
 			story: foundStory,
+
             currentUser: req.session.currentuser
 		});
 	});
@@ -52,7 +56,7 @@ router.get('/:id', function(req, res){
 });
 
 router.post('/', function(req, res){
-    User.findById(req.body.userId, function(err, foundUser){
+    User.findOne({username: req.body.username}, function(err, foundUser){
     	Story.create(req.body, function(err, createdStory){
             foundUser.stories.push(createdStory);
             foundUser.save(function(err, savedUser){
@@ -63,7 +67,7 @@ router.post('/', function(req, res){
 });
 
 router.delete('/:id', function(req, res){
-	Story.findByIdAndRemove(req.params.id, {new:true}, function(){
+	Story.findByIdAndRemove(req.params.id, function(){
         User.findOne({'stories._id':req.params.id}, function(err, foundUser){
             foundUser.stories.id(req.params.id).remove();
             foundUser.save(function(err, savedUser){

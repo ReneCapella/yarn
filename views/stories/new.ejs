@@ -10,11 +10,7 @@
         <main>
 
 			<form action="/stories" method="POST">
-                <select name="userId">
-                    <% for(var i = 0; i < users.length; i++) {%>
-                    <option value="<%=users[i].id%>" ><%=users[i].username%></option>
-                    <% } %>
-                </select></br>
+                <input type="text" name="username" value="<%=currentUser.username%>"><br/>
 				<input type="text" name="title" placeholder="Title"/><br/>
                 <select name="draft">
                     <% for(var i = 0; i < draft.length; i++){ %>

@@ -5,8 +5,9 @@ var bcrypt = require('bcrypt');
 var session = require('express-session');
 
 router.get('/new', function(req, res){
-    res.render('sessions/new.ejs');
-    currentUser: req.session.currentuser
+    res.render('sessions/new.ejs', {
+        currentUser: req.session.currentuser
+    });
 });
 
 router.post('/', function(req, res){
