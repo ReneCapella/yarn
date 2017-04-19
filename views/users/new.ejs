@@ -7,13 +7,13 @@
         <header class="header-other">
 			<%include ../../partials/header.ejs%>
 		</header>
+        <h2>Register</h2>
         <main class="user-new-main-div">
-            <h1>Register</h1>
-            <form class="" action="/users" method="POST">
-                <input type="text" name="username" placeholder="username"><br/>
+            <form class="register-form" action="/users" method="POST">
+                <input type="text" name="username" placeholder="Username"><br/>
+                <input type="password" name="password" placeholder="Password"><br/>
                 <input type="text" name="img" placeholder="Image url"><br/>
                 <textarea name="description" rows="8" cols="80" placeholder="Tell us about yourself:"></textarea><br/>
-                <input type="password" name="password" placeholder="password"><br/>
                 <input type="submit" value="Register" ><br/>
             </form>
         </main>

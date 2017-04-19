@@ -7,14 +7,18 @@
 		<header class="header-other">
 			<%include ../../partials/header.ejs%>
 		</header>
-		<main>
-            <section>
-                <h2><%=user.username%></h2>
+        <h2 id="user-show-username"><%=user.username%></h2>
+		<main id="user-show-main-div">
+            <section class="personal-info">
+            <section id="user-show-img">
                 <img src="<%=user.img%>" alt="">
+            </section>
+            <section id="user-show-info">
                 <h3>About <%=user.username%>:</h3>
                 <p><%=user.description%></p>
             </section>
-            <section>
+            </section>
+            <section id="user-show-stories">
                 <h2>Stories Written By <%=user.username%>:</h2>
                 <ul>
                     <li>
@@ -28,11 +32,11 @@
                 </ul>
             </section>
             <% if(currentUser === undefined){ %>
-            <section>
-                <a href="/users/new">Sign In or Register to spin your new \yärn\</a><br/>
-            </section>
+                <section id="user-show-signin">
+                    <a href="/users/new">Sign In or Register to spin your new \yärn\</a><br/>
+                </section>
             <% } else if(currentUser.username === user.username){ %>
-                <section>
+                <section id="user-show-create-delete">
                     <a href="/stories/new">Spin a new \yärn\</a><br/>
     				<a href="/users/<%=user._id%>/edit">Edit Account</a>
     			</section>

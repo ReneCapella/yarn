@@ -43,7 +43,6 @@ router.get('/:id/edit', function(req, res){
 
 router.get('/:id', function(req, res){
     Story.findById(req.params.id, function(err, foundStory){
-        console.log(foundStory);
         User.findOne({'stories._id':req.params.id}, function(err, foundUser){
     		res.render('stories/show.ejs', {
                 user: foundUser,
