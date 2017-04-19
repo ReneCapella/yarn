@@ -10,39 +10,39 @@
         <main>
 			<h2>Story Attributes:</h2>
 			<form action="/stories/<%=story._id%>?_method=PUT" method="post">
-                <input type="text" name="title" value="<%=story.title%>"/><br/>
-                <input type="text" name="username" value="<%=currentUser.username%>"><br/>
+                <input type="text" name="title" value="<%=story.title%>" required><br/>
+                <input type="text" name="username" value="<%=currentUser.username%>" required><br/>
                 <select name="draft">
                     <% for(var i = 0; i < draft.length; i++){ %>
                     <option value="<%=draft[i]%>"><%=draft[i]%></option>
                     <% } %>
                 </select><br/>
 
-                <textarea name="ordinaryWorld" rows="8" cols="80" placeholder="<%=story.ordinaryWorld%>"><%=story.ordinaryWorld%></textarea>
+                <textarea name="ordinaryWorld" rows="8" cols="100" placeholder="<%=story.ordinaryWorld%>" required><%=story.ordinaryWorld%></textarea>
 
-                <textarea name="callToAction" rows="8" cols="80" placeholder="<%=story.callToAction%>"><%=story.callToAction%></textarea><br/>
+                <textarea name="callToAction" rows="8" cols="100" placeholder="<%=story.callToAction%>" required><%=story.callToAction%></textarea><br/>
 
-                <textarea name="refusal" rows="8" cols="80" placeholder="<%=story.refusal%>"><%=story.refusal%></textarea><br/>
+                <textarea name="refusal" rows="8" cols="100" placeholder="<%=story.refusal%>" required><%=story.refusal%></textarea><br/>
 
-                <textarea name="mentorHelper" rows="8" cols="80" placeholder="<%=story.mentorHelper%>"><%=story.mentorHelper%></textarea><br/>
+                <textarea name="mentorHelper" rows="8" cols="100" placeholder="<%=story.mentorHelper%>" required><%=story.mentorHelper%></textarea><br/>
 
-                <textarea name="crossingThreshold" rows="8" cols="80" placeholder="<%=story.crossingThreshold%>"><%=story.crossingThreshold%></textarea><br/>
+                <textarea name="crossingThreshold" rows="8" cols="100" placeholder="<%=story.crossingThreshold%>" required><%=story.crossingThreshold%></textarea><br/>
 
-                <textarea name="landOfAdventure" rows="8" cols="80" placeholder="<%=story.landOfAdventure%>"><%=story.landOfAdventure%></textarea><br/>
+                <textarea name="landOfAdventure" rows="8" cols="100" placeholder="<%=story.landOfAdventure%>" required><%=story.landOfAdventure%></textarea><br/>
 
-                <textarea name="roadOfTrials" rows="8" cols="80" placeholder="<%=story.roadOfTrials%>"><%=story.roadOfTrials%></textarea><br/>
+                <textarea name="roadOfTrials" rows="8" cols="100" placeholder="<%=story.roadOfTrials%>" required><%=story.roadOfTrials%></textarea><br/>
 
-                <textarea name="approach" rows="8" cols="80" placeholder="<%=story.approach%>"><%=story.approach%></textarea><br/>
+                <textarea name="approach" rows="8" cols="100" placeholder="<%=story.approach%>" required><%=story.approach%></textarea><br/>
 
-                <textarea name="ordeal" rows="8" cols="80" placeholder="<%=story.ordeal%>"><%=story.ordeal%></textarea><br/>
+                <textarea name="ordeal" rows="8" cols="100" placeholder="<%=story.ordeal%>" required><%=story.ordeal%></textarea><br/>
 
-                <textarea name="reward" rows="8" cols="80" placeholder="<%=story.reward%>"><%=story.reward%></textarea><br/>
+                <textarea name="reward" rows="8" cols="100" placeholder="<%=story.reward%>" required><%=story.reward%></textarea><br/>
 
-                <textarea name="roadBack" rows="8" cols="80" placeholder="<%=story.roadBack%>"><%=story.roadBack%></textarea><br/>
+                <textarea name="roadBack" rows="8" cols="100" placeholder="<%=story.roadBack%>" required><%=story.roadBack%></textarea><br/>
 
-                <textarea name="atonement" rows="8" cols="80" placeholder="<%=story.atonement%>"><%=story.atonement%></textarea><br/>
+                <textarea name="atonement" rows="8" cols="100" placeholder="<%=story.atonement%>" required><%=story.atonement%></textarea><br/>
 
-                <textarea name="return" rows="8" cols="80" placeholder="<%=story.return%>" value="<%=story.return%>"><%=story.return%></textarea>
+                <textarea name="return" rows="8" cols="100" placeholder="<%=story.return%>" value="<%=story.return%>" required><%=story.return%></textarea>
 				<input type="submit" value="Update Story"/>
 			</form>
 		</main>
