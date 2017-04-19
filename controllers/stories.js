@@ -17,7 +17,6 @@ router.get('/', function(req, res){
 
 router.get('/new', function(req, res){
     User.findById(req.session.currentuser, function(err, foundUser){
-        console.log(req.session.currentuser);
         if(req.session.currentuser !== undefined){
             res.render('stories/new.ejs', {
                 draft:['Rough Draft', 'First Draft', 'Second Draft', 'Millionth Draft', 'Final'],
