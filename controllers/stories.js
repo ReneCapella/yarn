@@ -7,11 +7,14 @@ var session = require('express-session');
 
 router.get('/', function(req, res){
 	Story.find({}, function(err, foundStories){
+        User.find({}, function(err, foundUsers){
         console.log(foundStories);
-		res.render('stories/index.ejs', {
-			stories: foundStories,
-            currentUser: req.session.currentuser
-		});
+		      res.render('stories/index.ejs', {
+                users: foundUsers,
+			    stories: foundStories,
+                currentUser: req.session.currentuser
+		    });
+        });
 	});
 });
 

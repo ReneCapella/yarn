@@ -8,7 +8,7 @@
             <%include ../../partials/header.ejs%>
         </header>
         <h2><%=story.title%></h2>
-        <h4>by: <%=story.username%></h4>
+        <h4>by: <a href="/users/<%=user.id%>"><%=story.username%></a></h4>
         <main id="story-show-main-div">
 			<section>
                 <h3><%=story.draft%></h3>

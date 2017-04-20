@@ -13,8 +13,8 @@
 			<ul class="user-index-ul">
 				<% for(var i = 0; i < users.length; i++){ %>
 					<li class="user-index-li">
-						<a href="/users/<%=users[i]._id%>"><%=users[i].username%></a>
-                        <img src="<%=users[i].img%>" alt="">
+						<a href="/users/<%=users[i]._id%>"><%=users[i].username%><br/>
+                        <img src="<%=users[i].img%>" alt=""></a>
 					</li>
 				<% } %>
 			</ul>

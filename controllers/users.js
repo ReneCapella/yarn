@@ -70,6 +70,7 @@ router.delete('/:id', function(req, res){
 
 router.put('/:id', function(req, res){
 	User.findByIdAndUpdate(req.params.id, req.body, function(){
+        console.log(req.body);
 		res.redirect('/users');
 	});
 });

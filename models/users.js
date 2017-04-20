@@ -3,10 +3,10 @@ var Schema = mongoose.Schema;
 var Story = require('./stories.js');
 
 var userSchema = Schema({
-    username: String,
+    username: {type: String, required: true, unique: true},
     img: String,
     description: String,
-    password: String,
+    password: {type: String, required: true},
     stories: [Story.schema]
 });
 

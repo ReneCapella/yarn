@@ -41,8 +41,9 @@ a {
     text-decoration: none;
 }
 
-a :hover {
+a:hover {
     color: white;
+    text-decoration:underline;
 }
 
 img {
@@ -70,11 +71,11 @@ nav{
     display: flex;
     flex-direction: column-reverse;
     min-width: 600px;
-    -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 6s; /* Firefox < 16 */
-        -ms-animation: fadein 6s; /* Internet Explorer */
-         -o-animation: fadein 6s; /* Opera < 12.1 */
-            animation: fadein 6s;
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
 }
 .logo-home {
     min-width: 600px;
@@ -257,7 +258,7 @@ nav{
     border-bottom: 3px double lightgray;
     padding: 10px 0 10px 0;
 
-}
+
 
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1s; /* Firefox < 16 */
