@@ -61,8 +61,9 @@ a:hover {
 }
 
 img {
-
+    width: 200px;
     height: 200px;
+    overflow: scroll;
 }
 
 h2,h4 {
