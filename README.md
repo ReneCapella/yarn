@@ -15,11 +15,6 @@ Technical Challenges:
 
 Improvements:
   I want to do numerous things to improve the experience of this site: 
-~Connect the creation of a new user with signing in so that a new user doesn't need to sign-in after they've just registered.
-
-~Add default user img urls so no user goes without an image.
-
-~Add Bootstrap framworks to add more stricture to certain pages like the Community page and the User Show pages.
 
 ~Implement the ability to add liking and trending capabilities to each story created.
 
