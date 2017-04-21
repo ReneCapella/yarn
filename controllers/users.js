@@ -46,7 +46,7 @@ router.get('/:id/edit', function(req, res){
 router.post('/', function(req, res){
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 
-            var defaultImg = ["http://d2q9kw5vp0we94.cloudfront.net/yarnlistthumb/5420108.jpg","http://i.ebayimg.com/00/s/ODAwWDgwMA==/z/FuAAAOSweW5VRTEH/$_58.JPG","http://d2q9kw5vp0we94.cloudfront.net/regular/5420140.jpg","http://d2q9kw5vp0we94.cloudfront.net/regular/5420179.jpg","http://d2q9kw5vp0we94.cloudfront.net/regular/5420162.jpg","http://www.planet-science.com/umbraco/ImageGen.ashx?image=/media/101174/rocket_91785903.jpg&width=600&constrain=true"];
+            var defaultImg = ["http://d2q9kw5vp0we94.cloudfront.net/yarnlistthumb/5420108.jpg","http://i.ebayimg.com/00/s/ODAwWDgwMA==/z/FuAAAOSweW5VRTEH/$_58.JPG","http://d2q9kw5vp0we94.cloudfront.net/regular/5420140.jpg","http://d2q9kw5vp0we94.cloudfront.net/regular/5420179.jpg","http://d2q9kw5vp0we94.cloudfront.net/regular/5420162.jpg","http://d2q9kw5vp0we94.cloudfront.net/yarnlistthumb/5420224.jpg"];
             if (req.body.img === ""){
                 req.body.img = defaultImg[Math.floor(Math.random()*6-1) + 1];
                 User.create(req.body, function(err, createdUser){

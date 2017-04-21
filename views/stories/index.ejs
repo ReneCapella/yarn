@@ -8,12 +8,13 @@
             <%include ../../partials/header.ejs%>
         </header>
         <h2 id="story-show-headline">List of Stories</h2>
-        <main>
-			<ul>
-					<li>
-                        <% for(var i = 0; i < stories.length; i++){ %>
-						<a href="/stories/<%=stories[i]._id%>"><%=stories[i].title%></a><br/>
-                        by: <a href="/users/<%=users._id%>"><%=stories[i].username%></a><br/>
+        <main id="story-index-main">
+			<ul class="story-index-ul">
+                <% for(var i = 0; i < stories.length; i++){ %>
+					<li class="story-index-li">
+
+						<a id="story-title" href="/stories/<%=stories[i]._id%>"><%=stories[i].title%></a><br/>
+                        by: <a id="story-author" href="/users/<%=users._id%>"><%=stories[i].username%></a><br/>
 
 					</li>
 				<% } %>
