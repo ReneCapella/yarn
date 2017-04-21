@@ -9,9 +9,6 @@ var methodOverride = require('method-override');
 var port = process.env.PORT || 3000;
 var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/yarn';
 
-//require the models because of the mcAccount page??
-// var User = require('models/users.js');
-// var Story = require('models/stories.js');
 
 //middleware+++++++++++++++++++++++++++++++++++++
 app.use(methodOverride('_method'));
@@ -35,6 +32,8 @@ app.use('/users', usersController);
 var storiesController = require('./controllers/stories.js');
 app.use('/stories', storiesController);
 
+
+
 //--------------------------------ROUTES---------------------------------
 app.get('/', function(req, res){
     res.render('index.ejs', {
@@ -47,6 +46,8 @@ app.get('/about', function(req, res){
         currentUser: req.session.currentuser
     });
 });
+
+
 //connections++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 app.listen(port, function(){
     console.log("listening on port " + port);
@@ -57,30 +58,3 @@ mongoose.connect(mongoDBURI);
 mongoose.connection.once('open', function(){
     console.log('connected to mongo!');
 });
-
-// <input type="text" name="userId" value="<%=currentUser.username%>">
-
-// //characters
-//     hero: String,
-//     mentor: String,
-//     ally: String,
-//     herald: String,
-//     trickster: String,
-//     shapeshifter: String,
-//     guardian: String,
-//     shadow: String,
-// //parts of Hero Journey
-//     one: String,
-//     callToAction: String,
-//     superNaturalAide: String,
-//     firstThreshold:String,
-//     landOfAdventure: String,
-//     roadOfTrials: String,
-//     nightSeaVoyage: String,
-//     finalTemptation: String,
-//     apotheosis: String,
-//     confrontingBigBad: String,
-//     ultimateBoon: String,
-//     returnThreshold: String,
-//     freedomeToLive: String,
-//     celebration: String

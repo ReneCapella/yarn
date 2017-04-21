@@ -45,9 +45,14 @@ router.get('/:id/edit', function(req, res){
 
 router.post('/', function(req, res){
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-    User.create(req.body, function(err, createdUser){
-        res.redirect('/sessions/new');
-    });
+    if (req.body.img === ""){
+        req.body.img = "http://d2q9kw5vp0we94.cloudfront.net/regular/5420140.jpg";
+
+        User.create(req.body, function(err, createdUser){
+        console.log(createdUser);
+            res.redirect('/sessions/new');
+        });
+    };
 });
 
 router.delete('/:id', function(req, res){
@@ -70,7 +75,7 @@ router.delete('/:id', function(req, res){
 
 router.put('/:id', function(req, res){
 	User.findByIdAndUpdate(req.params.id, req.body, function(){
-        console.log(req.body);
+        console.log(req.body.img);
 		res.redirect('/users');
 	});
 });
