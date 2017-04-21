@@ -48,7 +48,7 @@ router.post('/', function(req, res){
 
             var defaultImg = ["http://d2q9kw5vp0we94.cloudfront.net/yarnlistthumb/5420108.jpg","http://i.ebayimg.com/00/s/ODAwWDgwMA==/z/FuAAAOSweW5VRTEH/$_58.JPG","http://d2q9kw5vp0we94.cloudfront.net/regular/5420140.jpg","http://d2q9kw5vp0we94.cloudfront.net/regular/5420179.jpg","http://d2q9kw5vp0we94.cloudfront.net/regular/5420162.jpg","http://d2q9kw5vp0we94.cloudfront.net/yarnlistthumb/5420224.jpg"];
             if (req.body.img === ""){
-                req.body.img = defaultImg[Math.floor(Math.random()*6-1) + 1];
+                req.body.img = defaultImg[Math.floor(Math.random()*5-0) + 0];
                 User.create(req.body, function(err, createdUser){
                     User.findOne({username: req.body.username}, function(err, foundUser){
                         console.log(foundUser);
